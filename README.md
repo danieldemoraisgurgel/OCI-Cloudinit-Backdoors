@@ -17,8 +17,14 @@ Be aware, that when a user has SSH access, they can switch to the backdoor user 
 
 ## Windows
 Windows cloud-init script does a lot more. First is enabled the instance to have commandline/powershell access via serial port. It creates the backdoor user and configures it to NOT have RDP access. It also hides the default usernames from the login screen.
-
 The script will reboot once after being created to enable the serial console
+
+In Windows SAC Console, type:
+ $ cmd
+ $ ch -si 1
+ 
+After that hit enter 2x and you get a login prompt. You can now login with the user backdoor, leaving the domain name empty (local user) and use the password 1LoveOracle!! (Change this in the cloudinit script on line 8)
+Now you have command prompt and can start the powershell console if you need that.
 
 ## Usage
 When creating a new instance in OCI, click on the Advanced Setting section in the bottom of the page and choise "past cloud init script". There you can paste the correct script depending on your operating system
